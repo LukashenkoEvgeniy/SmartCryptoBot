@@ -1,53 +1,56 @@
 package util;
 
-import model.domain.State;
-import model.implementation.StateDao;
+import model.State;
+import dao.StateDAOImpl;
 import org.junit.Test;
+import service.StateService;
+import service.StateServiceImpl;
 
 import static org.junit.Assert.assertEquals;
 
 public class State_CRUD {
 
     @Test
-    public void createState() {
+    public void create() {
         State state = new State();
-        state.setState("START");
-        StateDao stateDao = new StateDao();
+        state.setState("Start");
+        StateService stateDao = new StateServiceImpl();
         stateDao.create(state);
     }
 
     @Test
-    public void getStateById() {
-        StateDao stateDao = new StateDao();
-        State state = stateDao.getUserById(1);
-        assertEquals(1, state.getId());
+    public void read() {
+        StateService stateDao = new StateServiceImpl();
+        State state = stateDao.read(4);
+        assertEquals(4, state.getId());
     }
 
     @Test
-    public void deleteStateById() {
-        StateDao stateDao = new StateDao();
-        State state = stateDao.getUserById(1);
+    public void delete() {
+        StateService stateDao = new StateServiceImpl();
+        State state = stateDao.read(2);
 
         if (state == null){
-            createState();
+            create();
+            state = stateDao.read(2);
+
         }
-        state = stateDao.getUserById(1);
         stateDao.delete(state);
-        state = stateDao.getUserById(1);
+        state = stateDao.read(2);
         assertEquals(null, state);
     }
 
     @Test
     public void updateState() {
-        StateDao stateDao = new StateDao();
-        State state = stateDao.getUserById(3);
+        StateService stateDao = new StateServiceImpl();
+        State state = stateDao.read(3);
         if (state == null){
-            createState();
+            create();
         }
-        state.setState("FINISH");
+        state.setState("NOT");
         stateDao.update(state);
-        state = stateDao.getUserById(3);
-        assertEquals("FINISH", state.getState());
+        state = stateDao.read(3);
+        assertEquals("NOT", state.getState());
     }
 
 }

@@ -1,6 +1,4 @@
-package model.domain;
-
-import model.domain.State;
+package model;
 
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

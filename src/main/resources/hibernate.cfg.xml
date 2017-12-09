@@ -6,7 +6,7 @@
     <session-factory>
 
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://192.168.20.62:3306/botdb?serverTimezone=UTC</property>
+        <property name="hibernate.connection.url">jdbc:mysql://192.168.20.63:3306/botdb?serverTimezone=UTC</property>
         <property name="hibernate.connection.username">bot_app</property>
         <property name="hibernate.connection.password">bot_app</property>
         <!--<property name="hibernate.default_schema">crypto_panel</property>-->
@@ -39,7 +39,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!--***************************************************-->
 
-        <mapping class="model.domain.State"/>
+        <mapping class="model.State"/>
 
 
         <!--***************************************************-->
