@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://192.168.20.62:3306/botdb?serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">bot_app</property>
+        <property name="hibernate.connection.password">bot_app</property>
+        <!--<property name="hibernate.default_schema">crypto_panel</property>-->
+
+
+        <!--<property name="hibernate.c3p0.min_size">5</property>-->
+        <!--<property name="hibernate.c3p0.timeout">3</property>-->
+        <!--<property name="hibernate.c3p0.max_statements">5</property>-->
+        <!--<property name="hibernate.c3p0.idle_test_period">3</property>-->
+        <!--<property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>-->
+
+
+        <property name="hibernate.jdbc.batch_size">20</property>
+        <!--**************************************************-->
+
+        <property name="show_sql">true</property>
+        <!--**************************************************-->
+        <!--Dialect injection-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!--**************************************************-->
+        <!--SessionFactoryContext Configuration-->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!--**************************************************-->
+
+
+        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+
+
+        <!--DB CREATE/UPDATE option-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--***************************************************-->
+
+        <mapping class="model.domain.State"/>
+
+
+        <!--***************************************************-->
+    </session-factory>
+</hibernate-configuration>
