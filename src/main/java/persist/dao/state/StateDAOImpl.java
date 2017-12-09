@@ -1,6 +1,6 @@
-package persist.dao;
+package persist.dao.state;
 
-import model.State;
+import model.state.State;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -62,6 +62,12 @@ public class StateDAOImpl implements StateDAO {
     }
 
     public List<State> getAll() {
-        return null;
+        List<State> resultList = null;
+        try(Session session = sessionFactory.openSession()){
+            resultList = session.createCriteria(State.class).list();
+        }catch (Exception e){
+            logger.error("Can not delete");
+        }
+        return resultList;
     }
 }

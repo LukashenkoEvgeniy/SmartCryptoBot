@@ -1,15 +1,16 @@
-package persist.service;
+package persist.service.state;
 
-import model.State;
-import persist.dao.StateDAO;
-import persist.dao.StateDAOImpl;
+import model.state.State;
+import persist.dao.FactoryDao;
+import persist.dao.state.StateDAO;
+import persist.dao.state.StateDAOImpl;
 
 import java.util.List;
 
 
 public class StateServiceImpl implements StateService {
 
-    StateDAO stateDAO = new StateDAOImpl();
+    private StateDAO stateDAO = FactoryDao.getInstance().getStateDAO();
 
     public void create(State state) {
         stateDAO.create(state);

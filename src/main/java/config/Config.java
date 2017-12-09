@@ -32,7 +32,5 @@ public class Config {
 
         BOT_NAME = botSettings.getProperty("BotName", "xxx");
         BOT_TOKEN = botSettings.getProperty("BotToken", "xxx");
-
-        System.out.println(BOT_NAME);
     }
 }

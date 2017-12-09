@@ -39,7 +39,8 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!--***************************************************-->
 
-        <mapping class="model.State"/>
+        <mapping class="model.state.State"/>
+        <mapping class="model.user.User"/>
 
 
         <!--***************************************************-->

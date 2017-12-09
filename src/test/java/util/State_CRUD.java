@@ -1,54 +1,64 @@
 package util;
 
-import model.State;
+import model.state.State;
+import model.user.User;
 import org.junit.Test;
-import persist.service.StateService;
-import persist.service.StateServiceImpl;
+import persist.service.FactoryService;
 
 import static org.junit.Assert.assertEquals;
 
 public class State_CRUD {
 
     @Test
+    public void createUser(){
+        State state = new State();
+        state.setState("START");
+        FactoryService.getInstance().getStateService().create(state);
+
+        User testUser = new User();
+        testUser.setId(12314323);
+        testUser.setState(state);
+
+        FactoryService.getInstance().getUserService().create(testUser);
+
+    }
+
+
+    @Test
     public void create() {
         State state = new State();
         state.setState("Start");
-        StateService stateDao = new StateServiceImpl();
-        stateDao.create(state);
+        FactoryService.getInstance().getStateService().create(state);
     }
 
     @Test
     public void read() {
-        StateService stateDao = new StateServiceImpl();
-        State state = stateDao.read(4);
-        assertEquals(4, state.getId());
+        assertEquals(4, FactoryService.getInstance().getStateService().read(4).getId());
     }
 
     @Test
     public void delete() {
-        StateService stateDao = new StateServiceImpl();
-        State state = stateDao.read(2);
+        State state = FactoryService.getInstance().getStateService().read(2);
 
         if (state == null){
             create();
-            state = stateDao.read(2);
+            state = FactoryService.getInstance().getStateService().read(2);
 
         }
-        stateDao.delete(state);
-        state = stateDao.read(2);
+        FactoryService.getInstance().getStateService().delete(state);
+        state = FactoryService.getInstance().getStateService().read(2);
         assertEquals(null, state);
     }
 
     @Test
     public void updateState() {
-        StateService stateDao = new StateServiceImpl();
-        State state = stateDao.read(3);
+        State state = FactoryService.getInstance().getStateService().read(3);
         if (state == null){
             create();
         }
         state.setState("NOT");
-        stateDao.update(state);
-        state = stateDao.read(3);
+        FactoryService.getInstance().getStateService().update(state);
+        state = FactoryService.getInstance().getStateService().read(3);
         assertEquals("NOT", state.getState());
     }
 

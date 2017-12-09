@@ -1,6 +1,6 @@
-package persist.service;
+package persist.service.state;
 
-import model.State;
+import model.state.State;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package persist.dao;
+package persist.dao.state;
 
-import model.State;
+import model.state.State;
 
 import java.util.List;
 
