@@ -15,6 +15,7 @@ public class CRUD {
 
         StateDao stateDao = new StateDao();
         stateDao.create(state);
+
     }
 
 }
