@@ -1,10 +1,9 @@
 package util;
 
 import model.State;
-import dao.StateDAOImpl;
 import org.junit.Test;
-import service.StateService;
-import service.StateServiceImpl;
+import persist.service.StateService;
+import persist.service.StateServiceImpl;
 
 import static org.junit.Assert.assertEquals;
 

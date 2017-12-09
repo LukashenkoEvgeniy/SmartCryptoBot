@@ -1,10 +1,9 @@
-package dao;
+package persist.dao;
 
 import model.State;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.HibernateUtil;

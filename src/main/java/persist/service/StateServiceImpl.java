@@ -1,10 +1,9 @@
-package service;
+package persist.service;
 
 import model.State;
-import dao.StateDAO;
-import dao.StateDAOImpl;
+import persist.dao.StateDAO;
+import persist.dao.StateDAOImpl;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 
